@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* ==========================
+   THEME VARIABLES
+========================== */
+
+:root {
+  --bg: black;
+  --card: black;
+
+  --text: #0f172a;
+  --text-secondary: #475569;
+
+  --accent: white;
+  --accent-hover:  white;
+
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+
+  --input-bg: rgba(255, 255, 255, 0.7);
+  --summary-bg: rgba(99, 102, 241, 0.08);
+
+  --overlay: rgba(0, 0, 0, 0.4);
+}
+
+body[data-theme="dark"] {
+  --bg: black;
+  --card: black;
+
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+
+  --accent: white;
+  --accent-hover: white;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+
+  --input-bg: rgba(30, 41, 59, 0.7);
+  --summary-bg: rgba(129, 140, 248, 0.12);
+
+  --overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================
+   RESET
+========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 3rem;
+
+  z-index: 1000;
+
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+
+
+/* ==========================
+   HOME PAGE
+========================== */
+
+.home-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Video must be in:
+   public/videos/hero.mp4
+*/
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: cover;
+
+  z-index: 0;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+  text-align: center;
+
+  background: var(--overlay);
+}
+
+.overlay h1 {
+  max-width: 900px;
+
+  font-size: clamp(2rem, 4vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+
+  color: rgb(253, 242, 242);
+ margin-top: 6.5rem;
+  margin-bottom: 2rem;
+}
+
+.overlay p {
+  max-width: 700px;
+
+  color: rgba(208, 191, 191, 0.9);
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  margin-bottom: 3rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 1.5rem;
+}
+
+.hero-buttons a {
+  padding: 1rem 2rem;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-weight: 300;
+
+  transition: all 0.25s ease;
+}
+
+.hero-buttons a:hover {
+  transform: translateY(-3px);
+  background:rgb(222, 213, 213);
+  color: navy;
+}
+
+/* ==========================
+   INNER PAGES
+========================== */
+
+.page-container {
+  min-height: 70vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 120px 1.5rem 2rem;
+
+  background: var(--bg);
+}
+
+.page-card {
+  width: 100%;
+  max-width: 900px;
+
+  padding: 2.5rem;
+
+  background:black;
+  color:white;
+
+  border: 1px solid var(--border);
+  border-radius: 24px;
+
+  backdrop-filter: blur(20px);
+
+  box-shadow: var(--shadow);
+}
+
+.page-card h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.page-description {
+  text-align: center;
+  color: whitesmoke;
+
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* ==========================
+   INPUTS
+========================== */
+
+textarea,
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+
+  border-radius: 14px;
+  border: 1px solid var(--border);
+
+  background: var(--input-bg);
+  color: var(--text);
+
+  font-size: 1rem;
+  font-family: inherit;
+
+  outline: none;
+
+  transition: all 0.25s ease;
+}
+
+textarea {
+  min-height: 240px;
+  resize: vertical;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: var(--text-secondary);
+}
+
+textarea:focus,
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+button {
+  display: block;
+
+  margin: 0 auto;
+
+  padding: 1rem 2rem;
+
+  border: none;
+  border-radius: 14px;
+
+  background: var(--accent);
+  color: navy;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ==========================
+   SUMMARY
+========================== */
+
+.summary {
+  margin-top: 2rem;
+
+  padding: 1.5rem;
+
+  background: var(--summary-bg);
+
+  border-left: 4px solid var(--accent);
+  border-radius: 16px;
+}
+
+.summary h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.summary p {
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+
+  .navbar h2 {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .overlay h1 {
+    font-size: 3rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+
+  .page-card {
+    padding: 1.5rem;
+  }
+}
