@@ -1,0 +1,22 @@
+# HOW TO ACTIVATE THE NEW FEATURES
+# ----------------------------------
+# Your original app.py is untouched. To turn on the Knowledge Brain,
+# Memory + Context, and Progress Tracker endpoints, add these TWO lines
+# near the top of app.py (after `app = Flask(__name__)` and `CORS(app)`),
+# or anywhere before `if __name__ == "__main__":`.
+#
+# Nothing else in app.py needs to change. Your existing /summarize/*
+# routes keep working exactly as they did before.
+
+from brain_routes import brain_bp
+app.register_blueprint(brain_bp)
+
+# That's it. Restart the Flask server and the new endpoints become live:
+#
+#   POST   /brain/upload/text
+#   POST   /brain/upload/pdf
+#   POST   /brain/upload/youtube
+#   GET    /brain/documents
+#   DELETE /brain/documents/<id>
+#   POST   /brain/ask
+#   GET    /brain/progress

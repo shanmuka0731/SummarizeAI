@@ -1,0 +1,10 @@
+Flask
+flask-cors
+requests
+PyMuPDF
+python-dotenv
+youtube-transcript-api
+
+# No new packages are required for the Knowledge Brain / Memory + Context /
+# Progress Tracker features — brain_routes.py and brain_storage.py only use
+# the standard library plus what's already listed above.
